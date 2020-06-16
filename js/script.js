@@ -1,43 +1,30 @@
 //Sample 1
-var sumOld = function (a, b) {
-    return a + b;
-};
+function multiply(a, b) {
+    b = b || 1;
 
-console.log(sum(5, 5));
+    return a * b;
+}
 
+console.log(multiply(5));
 
-// Arrow functions 1
-var sum = (a, b) => a + b;
+// Default Function Arguments
+function multiply2(a, b = 1) {
+    //function multiply2(a = 2, b = 1) {
+    //function multiply2(a, b = a) {
+    return a * b;
+}
 
-console.log(sum(5, 5));
+console.log(multiply2(5));
 
+// Lazy Evaluation
+function randomNumber() {
+    console.log('Generating a random number...');
 
-//Sample 2
-var obj = {
-    showContext: function showContext() {
-        this.log('teste');
+    return Math.random() * 10;
+}
 
-        setTimeout(
-            function () {
-                this.log('after 1000ms');
-            }.bind(this), 1000
-        );
-    },
-    log: function log(value) {
-        console.log(value);
-    }
-};
-obj.showContext();
+function multiply3(a, b = randomNumber()) {
+    return a * b;
+}
 
-// Arrow functions 2
-var obj = {
-    showContext: function showContext() {
-        setTimeout(() => {
-            this.log('after 1000ms');
-        }, 1000);
-    },
-    log: function log(value) {
-        console.log(value);
-    }
-};
-obj.showContext();
+console.log(multiply3(5));
