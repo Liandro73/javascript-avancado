@@ -1,30 +1,69 @@
 //Sample 1
-function multiply(a, b) {
-    b = b || 1;
+var prop1 = 'Digital Innovation One';
 
-    return a * b;
+var obj = {
+    prop1: prop1
+};
+
+console.log(obj);
+
+// Enhanced Function Arguments
+var prop1 = 'Digital Innovation One';
+
+var obj1 = {
+    prop1
+};
+
+console.log(obj1);
+
+//
+
+function method1() {
+    console.log('method called')
 }
 
-console.log(multiply(5));
+var obj2 = {
+    method1
+};
 
-// Default Function Arguments
-function multiply2(a, b = 1) {
-    //function multiply2(a = 2, b = 1) {
-    //function multiply2(a, b = a) {
-    return a * b;
-}
+obj2.method1();
 
-console.log(multiply2(5));
+//
 
-// Lazy Evaluation
-function randomNumber() {
-    console.log('Generating a random number...');
+var obj3 = {
+    sum: function sum(a, b) {
+        return a + b;
+    }
+};
 
-    return Math.random() * 10;
-}
+console.log(obj3sum(1, 5));
 
-function multiply3(a, b = randomNumber()) {
-    return a * b;
-}
+//or
 
-console.log(multiply3(5));
+var obj4 = {
+    sum(a, b) {
+        return a + b;
+    }
+};
+
+console.log(obj4.sum(1, 5));
+
+//Sample 2
+
+var propName = 'test';
+
+var obj5 = {};
+
+obj5[propName + 'concat'] = 'prop value';
+
+console.log(obj5);
+
+// ES6
+
+var propName = 'test';
+
+var obj5 = {
+    [propName + 'concat']: 'prop value'
+};
+
+console.log(obj5);
