@@ -51,3 +51,38 @@ console.log(it.next());
 const arr2 = [...obj];
 
 console.log(arr2);
+
+// Generators
+
+function* hello() {
+    console.log('Hello');
+    yield 1;
+
+    console.log('From');
+    const value = yield 2;
+
+    console.log('Function!');
+}
+
+const it2 = hello();
+
+console.log(it2.next());
+console.log(it2.next());
+console.log(it2.next('Outside!'));
+
+//
+
+function* naturalNumbers() {
+    let number = 0;
+    while (true) {
+        yield number;
+        number++;
+    }
+}
+
+const it3 = naturalNumbers();
+
+console.log(it3.next());
+console.log(it3.next());
+console.log(it3.next());
+console.log(it3.next());
